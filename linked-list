@@ -1,0 +1,33 @@
+Why a Singly Linked List?
+Dynamic Size: Users can add or remove songs from the playlist. The playlist can grow or shrink; hence dynamic memory allocation of a linked list is beneficial.
+
+Sequential Access: When playing songs, it's typical to move from one song to the next, mimicking the forward traversal of a singly linked list.
+
+Insertions and Deletions: Users might decide to insert a song in the middle of the playlist or delete one. With an SLL, once you have a reference to the previous song (node), you can insert or delete the next song in O(1) time.
+
+Sample Input
+
+2
+16
+13
+Sample Output
+
+16
+13
+
+def printLinkedList(head):
+    while head:
+        print(head.data) #Inside the while loop, this line prints the data of the current node (the one pointed to by head). The .data attribute is used to access the data of the current node.
+        head = head.next #go to the next node until it finish :)
+
+
+if __name__ == '__main__':
+    llist_count = int(input())
+
+    llist = SinglyLinkedList()
+
+    for _ in range(llist_count):
+        llist_item = int(input())
+        llist.insert_node(llist_item)
+
+    printLinkedList(llist.head)
