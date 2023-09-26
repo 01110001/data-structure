@@ -1,0 +1,44 @@
+Given a 6x6 2D Array, :
+col
+1 1 1 0 0 0 row
+0 1 0 0 0 0
+1 1 1 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+
+//An hourglasses
+0 4 3
+  1
+8 6 6
+
+
+
+//THE R CODE (the first for loop is for the column, then the second one is for the row.)
+  hourglassSum <- function(arr) {
+  
+  max_sum <- -Inf  # This will store the maximum hourglass sum, initialized to a very small value.
+  
+  # Iterate through rows and columns, leaving out the last two since our hourglass is of size 3x3
+  for (i in 1:4) { #We go 1:4 because an hourglass is (3x3)
+    for (j in 1:4) {
+      
+      # Calculate the hourglass sum for the current position
+      top <- sum(arr[i, j:(j+2)])
+      middle <- arr[i+1, j+1] #To get the middle value.
+      bottom <- sum(arr[i+2, j:(j+2)])
+      #0 4 3 top
+        #1 middle
+      #8 6 6 bottom
+      
+      current_sum <- top + middle + bottom
+      
+      # Update the max_sum if the current hourglass sum is greater than max_sum
+      if (current_sum > max_sum) {
+        max_sum <- current_sum
+      }
+    }
+  }
+  
+  return(max_sum)
+}
