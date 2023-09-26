@@ -1,0 +1,40 @@
+//IN R
+reverse_array <- function(arr) {
+  return(arr[length(arr):1])
+}
+You could use the rev() function also.
+
+//IN PYTHON
+def reverse_array(arr):
+    return arr[::-1] --> reverse the array
+OR USE THE REVERSE() FUNCTION
+
+//JAVASCRIPT
+function reverseArray(arr) {
+    let reversed = [];
+    for(let i = arr.length - 1; i >= 0; i--) {
+        reversed.push(arr[i]);
+    }
+    return reversed;
+} OR USE THE REVERSE() FUNCTION
+
+//C# --- using the method
+    public static void Main()
+    {
+        int[] arr = {1, 2, 3, 4, 5};
+        Array.Reverse(arr);
+
+        foreach (int num in arr)
+        {
+            Console.WriteLine(num);
+        }
+//C# --- without the method
+    public static T[] ReverseArray<T>(T[] arr)
+    {
+        T[] reversed = new T[arr.Length];
+        for (int i = 0; i < arr.Length; i++)
+        {
+            reversed[i] = arr[arr.Length - 1 - i];
+        }
+        return reversed;
+    }
