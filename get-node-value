@@ -1,0 +1,18 @@
+def getNode(llist, positionFromTail):
+    # Step 1: Traverse to find the length of the list
+    length = 0
+    current = llist
+    while current:
+        length += 1
+        current = current.next
+    
+    # Step 2: Calculate position from head
+    position_from_head = length - positionFromTail - 1
+    
+    # Step 3: Traverse again to the calculated position
+    current = llist
+    for i in range(position_from_head):
+        current = current.next
+
+    return current.data
+
