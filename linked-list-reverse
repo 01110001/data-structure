@@ -1,0 +1,12 @@
+
+def reversePrint(llist):
+    # Base case: If the current node is None, return without doing anything
+    if llist is None:
+        return
+
+    # First, traverse to the end of the list
+    reversePrint(llist.next)
+
+    # Print the node's data during the unwinding phase
+    print(llist.data)
+    
