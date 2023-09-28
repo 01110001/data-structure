@@ -1,0 +1,22 @@
+def reverse(llist):
+    # Initialize pointers
+    previous = None
+    current = llist
+    next_node = None
+    
+    # Traverse the list and reverse the pointers
+    while current:
+        # Store the next node
+        next_node = current.next
+        
+        # Reverse the current node's pointer
+        current.next = previous
+        
+        # Move the pointers one position forward
+        previous = current
+        current = next_node
+
+    # The new head of the list
+    llist = previous
+
+    return llist
