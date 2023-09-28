@@ -1,0 +1,24 @@
+def deleteNode(llist, position):
+    # If the list is empty, simply return None
+    if llist is None:
+        return None
+    
+    # Special case: if position is 0, return the next node
+    if position == 0:
+        return llist.next
+    
+    # Start traversal
+    current = llist
+    previous = None
+    for i in range(position):
+        if current is None:  # If the position is out of bounds
+            return llist  # Just return the head, no changes made
+        previous = current
+        current = current.next
+    
+    # Delete the node by bypassing it
+    if current:  # If current is not None
+        previous.next = current.next
+
+    return llist  # Return the (possibly unchanged) head
+    
