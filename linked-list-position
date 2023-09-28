@@ -1,0 +1,61 @@
+#
+# Complete the 'insertNodeAtPosition' function below.
+#
+# The function is expected to return an INTEGER_SINGLY_LINKED_LIST.
+# The function accepts following parameters:
+#  1. INTEGER_SINGLY_LINKED_LIST llist
+#  2. INTEGER data
+#  3. INTEGER position
+#
+
+#
+# For your reference:
+#
+# SinglyLinkedListNode:
+#     int data
+#     SinglyLinkedListNode next
+#
+#
+
+def insertNodeAtPosition(llist, data, position):
+    new_node = SinglyLinkedListNode(data)
+
+    if position == 0: # If inserting at the beginning
+        new_node.next = llist
+        return new_node
+
+    # Start traversal
+    current = llist
+    for i in range(position - 1): # We stop one node before the desired position
+        if current is None:  # If the position is out of bounds
+            raise Exception("Position out of bounds")
+        current = current.next
+
+    # Insert the new node at the desired position
+    new_node.next = current.next
+    current.next = new_node
+
+    return llist  # Return the head of the list (unchanged unless inserting at the beginning)
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    llist_count = int(input())
+
+    llist = SinglyLinkedList()
+
+    for _ in range(llist_count):
+        llist_item = int(input())
+        llist.insert_node(llist_item)
+
+    data = int(input())
+
+    position = int(input())
+
+    llist_head = insertNodeAtPosition(llist.head, data, position)
+
+    print_singly_linked_list(llist_head, ' ', fptr)
+    fptr.write('\n')
+
+    fptr.close()
